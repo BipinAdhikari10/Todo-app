@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>To do app</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <h1 class="heading">Todo App</h1>
+            <div class="mx-auto mt-5" style="max-width: 600px">
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter Your Name"
+                        aria-label="Name input"
+                        id="name"
+                        aria-describedby="button-addon2"
+                    />
+                    <button class="btn btn-primary text-white add-user-btn" id="addBtn" type="button">
+                        Add Task
+                    </button>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="display">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td>1</td>
+                                <td>Bipin</td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-primary">
+                                        <i class="fa fa-edit"></i> 
+                                    </button>
+                                    <button class="btn btn-danger">
+                                        <i class="fa fa-trash"></i> 
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
