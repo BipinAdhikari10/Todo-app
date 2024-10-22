@@ -1,11 +1,14 @@
+
 let inputName = document.getElementById("name");
 let addButton = document.getElementById("addBtn");
 let tableBody = document.getElementById("tableBody");
 let errorMessage = document.getElementById("errorMessage");
 tableBody.innerHTML = "";
 
-let submittedData = [];
+let submittedData = JSON.parse(localStorage.getItem("tasks")) || [];
 let edit_index = null;
+
+displayData(); 
 
 addButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -17,8 +20,11 @@ addButton.addEventListener("click", (event) => {
     };
 
     if (formData.enteredName === "") {
-        errorMessage.textContent = "Invalid: Name is required";
+        errorMessage.textContent = "Invalid:Task is required";
+        inputName.classList.add("error-border");
         return;
+    } else {
+        inputName.classList.remove("error-border"); 
     }
 
     if (edit_index == null) {
@@ -30,6 +36,8 @@ addButton.addEventListener("click", (event) => {
     
     inputName.value = "";
     addButton.innerText = "Add Task";
+    
+    localStorage.setItem("tasks", JSON.stringify(submittedData)); 
     displayData();
 });
 
@@ -54,6 +62,7 @@ function displayData() {
 
 function deleteInfo(index) {
     submittedData.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(submittedData)); 
     displayData();
 }
 
